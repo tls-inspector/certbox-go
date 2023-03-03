@@ -32,6 +32,7 @@ func generateCertificateChain() (*tls.Certificate, *tls.Certificate, error) {
 			OCSPSigning:      true,
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err != nil {
 		return nil, nil, err
@@ -65,6 +66,7 @@ func generateCertificateChain() (*tls.Certificate, *tls.Certificate, error) {
 			ServerAuth:       true,
 			ClientAuth:       true,
 		},
+		SignatureAlgorithm: tls.SignatureAlgorithmSHA256,
 	}, root)
 	if err != nil {
 		return nil, nil, err
@@ -190,6 +192,7 @@ func TestSAN(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err != nil {
 		t.Fatalf("Error generating certificate: %s", err.Error())
@@ -253,6 +256,7 @@ func TestSANInvalidTypes(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err == nil {
 		t.Errorf("No error seen when one expected for empty value")
@@ -279,6 +283,7 @@ func TestSANInvalidTypes(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err == nil {
 		t.Errorf("No error seen when one expected for invalid DNS name")
@@ -305,6 +310,7 @@ func TestSANInvalidTypes(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err == nil {
 		t.Errorf("No error seen when one expected for invalid IP address")
@@ -331,6 +337,7 @@ func TestSANInvalidTypes(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err == nil {
 		t.Errorf("No error seen when one expected for invalid URI")
@@ -357,6 +364,7 @@ func TestSANInvalidTypes(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err == nil {
 		t.Errorf("No error seen when one expected for unknown name type")
@@ -397,6 +405,7 @@ func TestKeyUsage(t *testing.T) {
 			OCSPSigning:       true,
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}, nil)
 	if err != nil {
 		t.Fatalf("Error generating certificate: %s", err.Error())

@@ -251,6 +251,7 @@ func TestImportClone(t *testing.T) {
 			},
 		},
 		IsCertificateAuthority: true,
+		SignatureAlgorithm:     tls.SignatureAlgorithmSHA256,
 	}
 
 	root, err := tls.GenerateCertificate(request, nil)
