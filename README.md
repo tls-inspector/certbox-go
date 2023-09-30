@@ -1,3 +1,1 @@
-# Certbox Go
-
-Provides the Go backend for CertBox Web and Desktop
+**This repo has been merged into https://github.com/tls-inspector/certbox**
